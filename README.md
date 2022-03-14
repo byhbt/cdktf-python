@@ -20,6 +20,15 @@ help(cdktf_cdktf_provider_aws.AwsProvider)
 
 ```
 
+## Tutorials
+
+- Getting Started With CDK for Terraform and Python: https://www.youtube.com/watch?v=Ee2qh-pEC5k
+- Unboxing the CDK to Terraform output format: https://www.youtube.com/watch?v=9s_BAyQIAhs
+  - https://github.com/adamjkeller/ContainersFromTheCouch-terraform-cdk-example
+- https://github.com/hashicorp/terraform-cdk/blob/main/docs/getting-started/python.md
+- `tfcdk` Deep Dive: https://www.youtube.com/watch?v=nNr8JrN-9HE
+- AWS CDK: https://www.youtube.com/watch?v=NkI5yeMFRK8
+
 ## Initialize a new project
 
 Using Python as primary language CDK
@@ -39,7 +48,7 @@ cdktf deploy
 - planning
 - deploying
 
-## Common error
+## Common errors
 
 ### Missing the ENV variables for AWS Authentication.
 
@@ -63,12 +72,3 @@ cdktf deploy
 │   23:       }
 │
 ```
-
-Tutorials
-
-- tfcdk: https://www.youtube.com/watch?v=Ee2qh-pEC5k
-- tfcdk in Python: https://www.youtube.com/watch?v=Ee2qh-pEC5k
-- AWS CDK: https://www.youtube.com/watch?v=NkI5yeMFRK8
-- tfcdk deep dive: https://www.youtube.com/watch?v=nNr8JrN-9HE
-- https://github.com/hashicorp/terraform-cdk/blob/main/docs/getting-started/python.md
--
