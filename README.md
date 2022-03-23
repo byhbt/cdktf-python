@@ -9,7 +9,39 @@ export AWS_ACCESS_KEY_ID=
 export AWS_SECRET_ACCESS_KEY=
 ```
 
-## Explore docs:
+If you plan to run the code on Terraform Cloud then we don't need to define these variables locally.
+
+## How to run
+
+First, you need to setup the necessary environment variables on Terraform cloud.
+
+Then install `pipenv` as package management, for installing the dependencies:
+
+```sh
+pipenv install
+```
+
+Run `synth` command to verify if the source code is ready.
+
+```sh
+cdktf synth
+```
+
+Start deploy the infrastructure
+
+```sh
+cdktf deploy --auto-approve
+```
+
+Clean up command if no longer in use.
+
+```sh
+cdktf destroy --auto-approve
+```
+
+## CDKTF Library Reference:
+
+From the CLI:
 
 ```
 pipenv shell
@@ -18,7 +50,12 @@ import cdktf_cdktf_provider_aws
 
 help(cdktf_cdktf_provider_aws.AwsProvider)
 
+help(cdktf_cdktf_provider_aws.ecs)
 ```
+
+From the Constructs website:
+
+https://constructs.dev/packages/@cdktf/provider-aws/v/5.0.48/api/EcsCluster?lang=python&submodule=ecs
 
 ## Tutorials
 
@@ -29,19 +66,9 @@ help(cdktf_cdktf_provider_aws.AwsProvider)
 - `tfcdk` Deep Dive: https://www.youtube.com/watch?v=nNr8JrN-9HE
 - AWS CDK: https://www.youtube.com/watch?v=NkI5yeMFRK8
 
-## Initialize a new project
+Python self: https://www.programiz.com/article/python-self-why
 
-Using Python as primary language CDK
-
-```bash
-cdktf init --template="python"
-```
-
-```bash
-cdktf deploy
-```
-
-## Step:
+## Step
 
 - synthesizing
 - initializing
