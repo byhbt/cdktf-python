@@ -15,6 +15,8 @@ If you plan to run the code on Terraform Cloud then we don't need to define thes
 
 First, you need to setup the necessary environment variables on Terraform cloud.
 
+![image](https://user-images.githubusercontent.com/948856/159622273-4e8ffcaa-dbb5-45cb-be0f-1f2db6b0c8cc.png)
+
 Then install `pipenv` as package management, for installing the dependencies:
 
 ```sh
