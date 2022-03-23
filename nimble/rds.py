@@ -19,7 +19,7 @@ def create_rds(self):
     sensitive=True
   )
 
-  rds_instance = rds.DbInstance(self, "centauri-db",
+  rds_instance = rds.DbInstance(self, "galaxy-vivo-db",
     name=db_name.string_value,
     engine="postgres",
     engine_version="14.1",

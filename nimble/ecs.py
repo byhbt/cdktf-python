@@ -4,7 +4,7 @@ from cdktf import TerraformVariable
 
 
 def create_ecs_cluster(self):
-  cluster = ecs.EcsCluster(self, "centauri-cluster", name="Centauri")
+  cluster = ecs.EcsCluster(self, "galaxy-vivo-cluster", name="galaxy-vivo")
 
   return cluster
 
@@ -64,9 +64,9 @@ def parse_container_definition(self, db_connection_str, alb_dns_name, log_group)
   return container_definition_json_content
 
 def create_task_definition(self, aws_iam_role_ecs_task_execution, db_connection_str, alb_dns_name, log_group):
-  task_definition = ecs.EcsTaskDefinition(self, "centauri-task-def",
+  task_definition = ecs.EcsTaskDefinition(self, "galaxy-vivo-task-def",
     container_definitions=parse_container_definition(self, db_connection_str, alb_dns_name, log_group),
-    family="centauri-service-latest",
+    family="galaxy-vivo-service-latest",
     requires_compatibilities=["FARGATE"],
     network_mode="awsvpc",
     cpu="256",
@@ -79,13 +79,13 @@ def create_task_definition(self, aws_iam_role_ecs_task_execution, db_connection_
 
 def create_ecs_service(self, ecs_cluster, task_definition, security_group, subnets, target_group):
   ecs_service = ecs.EcsService(
-      self, "centauri",
+      self, "galaxy-vivo",
       cluster=ecs_cluster.id,
       deployment_maximum_percent=100,
       deployment_minimum_healthy_percent=0,
       desired_count=1,
       launch_type="FARGATE",
-      name="centauri-service",
+      name="galaxy-vivo-service",
       scheduling_strategy="REPLICA",
       task_definition=task_definition.arn,
       network_configuration=ecs.EcsServiceNetworkConfiguration(
@@ -94,7 +94,7 @@ def create_ecs_service(self, ecs_cluster, task_definition, security_group, subne
           assign_public_ip=True
       ),
       load_balancer=[ecs.EcsServiceLoadBalancer(
-        container_name="centauri-app",
+        container_name="galaxy-vivo-app",
         container_port=4000,
         target_group_arn=target_group.arn
       )]

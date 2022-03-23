@@ -4,7 +4,11 @@ from cdktf import TerraformVariable
 def create_alb(self, subnets, target_group):
   aws_lb_app = elb.Lb(self, "app",
     load_balancer_type="application",
+<<<<<<< HEAD
     name="centauri-alb",
+=======
+    name="galaxy-vivo-alb",
+>>>>>>> 656fdef (Update README)
     subnets=subnets.list_value
   )
 
@@ -38,7 +42,7 @@ def create_target_group(self):
     #   "timeout": 65,
     #   "unhealthy_threshold": 2
     # }],
-    name="centauri-tg",
+    name="galaxy-vivo-tg",
     port=4000,
     protocol="HTTP",
     target_type="ip",

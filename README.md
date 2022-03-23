@@ -1,17 +1,4 @@
-## Setup credentials
-
-Using https://direnv.net/
-
-Example `.envrc`
-
-```bash
-export AWS_ACCESS_KEY_ID=
-export AWS_SECRET_ACCESS_KEY=
-```
-
-If you plan to run the code on Terraform Cloud then we don't need to define these variables locally.
-
-## How to run
+## Up and running
 
 First, you need to setup the necessary environment variables on Terraform cloud.
 
@@ -41,7 +28,7 @@ Clean up command if no longer in use.
 cdktf destroy --auto-approve
 ```
 
-## CDKTF Library Reference:
+## CDKTF Library Reference
 
 From the CLI:
 
@@ -70,16 +57,9 @@ https://constructs.dev/packages/@cdktf/provider-aws/v/5.0.48/api/EcsCluster?lang
 
 Python self: https://www.programiz.com/article/python-self-why
 
-## Step
-
-- synthesizing
-- initializing
-- planning
-- deploying
-
 ## Common errors
 
-### Missing the ENV variables for AWS Authentication.
+### Missing the ENV variables for AWS Authentication
 
 ```bash
 ╷
