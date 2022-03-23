@@ -44,8 +44,18 @@ class MyStack(TerraformStack):
     # Init Log group
     log_group = create_log_group(self)
 
-    task_definition = create_task_definition(self, aws_iam_role_ecs_task_execution, db_connection_str, alb.dns_name, log_group)
-    ecs_service = create_ecs_service(self, ecs_cluster, task_definition, security_group, subnets, target_group)
+    task_definition = create_task_definition(self,
+                                    aws_iam_role_ecs_task_execution,
+                                    db_connection_str,
+                                    alb.dns_name,
+                                    log_group)
+
+    ecs_service = create_ecs_service(self,
+                                    ecs_cluster,
+                                    task_definition,
+                                    security_group,
+                                    subnets,
+                                    target_group)
 
     TerraformOutput(self, "alb_target_group_arn",
       value=alb.dns_name
